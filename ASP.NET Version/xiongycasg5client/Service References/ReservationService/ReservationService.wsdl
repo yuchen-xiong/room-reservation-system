@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReservationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:62135/ReservationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:62135/ReservationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:62135/ReservationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/xiongycasg5server" />
+      <xsd:import schemaLocation="http://localhost:62135/ReservationService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReservationService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_ListCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListCustomers" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_ListCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_ListAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_ListAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_Book_InputMessage">
+    <wsdl:part name="parameters" element="tns:Book" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_Book_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BookResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReservationService">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/GetData" message="tns:IReservationService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/GetDataResponse" message="tns:IReservationService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/GetDataUsingDataContract" message="tns:IReservationService_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/GetDataUsingDataContractResponse" message="tns:IReservationService_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/ListCustomers" message="tns:IReservationService_ListCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/ListCustomersResponse" message="tns:IReservationService_ListCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/ListAvailable" message="tns:IReservationService_ListAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/ListAvailableResponse" message="tns:IReservationService_ListAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Book">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/Book" message="tns:IReservationService_Book_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/BookResponse" message="tns:IReservationService_Book_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReservationService" type="tns:IReservationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCustomers">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/ListCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAvailable">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/ListAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Book">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/Book" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReservationService">
+    <wsdl:port name="BasicHttpBinding_IReservationService" binding="tns:BasicHttpBinding_IReservationService">
+      <soap:address location="http://localhost:62135/ReservationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
